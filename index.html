@@ -75,7 +75,54 @@
 
 
 
+</style><style>
+
+/* Neon Navigation Bar */
+.neon-nav {
+  width: 100%;
+  padding: 15px 0;
+  text-align: center;
+  background: rgba(0,0,0,0.3);
+  border-bottom: 3px solid #ff4df0;
+  box-shadow: 0 0 20px #ff4df0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.neon-nav a {
+  margin: 0 20px;
+  font-size: 20px;
+  color: #ffb7ff;
+  text-shadow: 0 0 10px #ff4df0;
+  transition: 0.3s ease;
+}
+
+.neon-nav a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 20px #ff4df0, 0 0 40px #ff4df0;
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -80px;
+  width: 30px;
+  height: 30px;
+  background: pink;
+  clip-path: path("M24.6 4.6c-2.8-2.8-7.3-2.8-10.1 0L12 7.1l-2.5-2.5c-2.8-2.8-7.3-2.8-10.1 0s-2.8 7.3 0 10.1l2.5 2.5L12 24l10.1-10.1 2.5-2.5c2.8-2.8 2.8-7.3 0-10.1z");
+  opacity: 0.8;
+  animation: floatHearts 10s infinite ease-in;
+}
+
+@keyframes floatHearts {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-120vh) scale(1.8); opacity: 0; }
+}
+
 </style>
+
+
 </style>/
 <script>
 document.querySelectorAll('.guide-box').forEach(box => {
