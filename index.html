@@ -3,7 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Roxanne’s Cyber‑Bubble TV Guide</title>
-<style><style>
+<style>/* Neon Navigation Bar */
+.neon-nav {
+  width: 100%;
+  padding: 15px 0;
+  text-align: center;
+  background: rgba(0,0,0,0.3);
+  border-bottom: 3px solid #ff4df0;
+  box-shadow: 0 0 20px #ff4df0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.neon-nav a {
+  margin: 0 20px;
+  font-size: 20px;
+  color: #ffb7ff;
+  text-shadow: 0 0 10px #ff4df0;
+  transition: 0.3s ease;
+}
+
+.neon-nav a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 20px #ff4df0, 0 0 40px #ff4df0;
+}
+<style>
 body {
   margin: 0;
   padding: 20px;
@@ -136,10 +161,30 @@ a {
   font-weight: bold;
   text-shadow: 0 0 6px #00eaff;
 }
-</style>
+</style>/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -80px;
+  width: 30px;
+  height: 30px;
+  background: pink;
+  clip-path: path("M24.6 4.6c-2.8-2.8-7.3-2.8-10.1 0L12 7.1l-2.5-2.5c-2.8-2.8-7.3-2.8-10.1 0s-2.8 7.3 0 10.1l2.5 2.5L12 24l10.1-10.1 2.5-2.5c2.8-2.8 2.8-7.3 0-10.1z");
+  opacity: 0.8;
+  animation: floatHearts 10s infinite ease-in;
+}
+@keyframes floatHearts {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-120vh) scale(1.8); opacity: 0; }
+}
+
 </head>
 
-<body><!-- Floating bubbles -->
+<body><nav class="neon-nav">
+  <a href="#top">Home</a>
+  <a href="#shows">Shows</a>
+  <a href="#movies">Movies</a>
+</nav>
+<!-- Floating bubbles -->
 <div class="bubble" style="left:10%; animation-delay:0s;"></div>
 <div class="bubble" style="left:30%; animation-delay:2s;"></div>
 <div class="bubble" style="left:50%; animation-delay:4s;"></div>
@@ -203,5 +248,18 @@ a {
   <a href="https://tubitv.com/movies/466567/equilibrium">Watch on Tubi</a>
 </div>
 
-</body>
+</body><audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b4b1c3f3d.mp3?filename=pop-94319.mp3"></audio>
+
+<script>
+document.querySelectorAll('.guide-box').forEach(box => {
+  box.addEventListener('mouseenter', () => {
+    document.getElementById('hoverSound').play();
+  });
+});
+</script>
+<!-- Floating hearts -->
+<div class="heart" style="left:15%; animation-delay:0s;"></div>
+<div class="heart" style="left:45%; animation-delay:2s;"></div>
+<div class="heart" style="left:75%; animation-delay:1s;"></div>
+
 </html>
