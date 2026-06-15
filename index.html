@@ -286,12 +286,25 @@ a {
 <!-- Sound Effect -->
 <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b4b1c3f3d.mp3?filename=pop-94319.mp3"></audio>
 
-<script>
+<script><script>
 document.querySelectorAll('.guide-box').forEach(box => {
   box.addEventListener('mouseenter', () => {
     document.getElementById('hoverSound').play();
   });
 });
+
+/* Glitter cursor trail */
+document.addEventListener('mousemove', e => {
+  const glitter = document.createElement('div');
+  glitter.className = 'cursor-glitter';
+  glitter.style.left = e.pageX + 'px';
+  glitter.style.top = e.pageY + 'px';
+  document.body.appendChild(glitter);
+  setTimeout(() => glitter.remove(), 800);
+});
+</script>
+
+
 
 /* Glitter cursor trail */
 document.addEventListener('mousemove', e => {
