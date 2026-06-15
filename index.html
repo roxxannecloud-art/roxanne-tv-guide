@@ -3,79 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Roxanne’s Cyber‑Bubble TV Guide</title>
-<style>/* Neon Navigation Bar */
-.neon-nav {
-  width: 100%;
-  padding: 15px 0;
-  text-align: center;
-  background: rgba(0,0,0,0.3);
-  border-bottom: 3px solid #ff4df0;
-  box-shadow: 0 0 20px #ff4df0;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
 
-.neon-nav a {
-  margin: 0 20px;
-  font-size: 20px;
-  color: #ffb7ff;
-  text-shadow: 0 0 10px #ff4df0;
-  transition: 0.3s ease;
-}
+<style>
 
-.neon-nav a:hover {
+/* Animated gradient background */
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: 'Trebuchet MS', sans-serif;
   color: #ffffff;
-  text-shadow: 0 0 20px #ff4df0, 0 0 40px #ff4df0;
+  background: linear-gradient(120deg, #ff4df0, #7b2fff, #00eaff);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  overflow-x: hidden;
+  cursor: none;
 }
-<style>/* Floating hearts */
-.heart {
-  position: fixed;
-  bottom: -80px;
-  width: 30px;
-  height: 30px;
-  background: pink;
-  clip-path: path("M24.6 4.6c-2.8-2.8-7.3-2.8-10.1 0L12 7.1l-2.5-2.5c-2.8-2.8-7.3-2.8-10.1 0s-2.8 7.3 0 10.1l2.5 2.5L12 24l10.1-10.1 2.5-2.5c2.8-2.8 2.8-7.3 0-10.1z");
-  opacity: 0.8;
-  animation: floatHearts 10s infinite ease-in;
-}
-@keyframes floatHearts {
-  0% { transform: translateY(0) scale(1); opacity: 1; }
-  100% { transform: translateY(-120vh) scale(1.8); opacity: 0; }
-}/* Neon Navigation Bar */
-.neon-nav {
-  width: 100%;
-  padding: 15px 0;
-  text-align: center;
-  background: rgba(0,0,0,0.3);
-  border-bottom: 3px solid #ff4df0;
-  box-shadow: 0 0 20px #ff4df0;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
-
-.neon-nav a {
-  margin: 0 20px;
-  font-size: 20px;
-  color: #ffb7ff;
-  text-shadow: 0 0 10px #ff4df0;
-  transition: 0.3s ease;
-}
-
-.neon-nav a:hover {
-  color: #ffffff;
-  text-shadow: 0 0 20px #ff4df0, 0 0 40px #ff4df0;
-}/* Neon border glow */
-.guide-box {
-  border: 3px solid #ff4df0;
-  box-shadow: 0 0 20px #ff4df0, 0 0 40px #ff4df0 inset;
-}
-
-
-
-
-</style><style>
 
 /* Neon Navigation Bar */
 .neon-nav {
@@ -103,6 +45,65 @@
   text-shadow: 0 0 20px #ff4df0, 0 0 40px #ff4df0;
 }
 
+/* Neon title pulse */
+h1 {
+  text-align: center;
+  font-size: 48px;
+  color: #ffb7ff;
+  text-shadow: 0 0 12px #ff4df0, 0 0 22px #ff4df0;
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+/* Guide boxes */
+.guide-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 3px solid #ff4df0;
+  border-radius: 25px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  box-shadow: 0 0 20px #ff4df0, 0 0 40px #ff4df0 inset;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Wiggle hover */
+.guide-box:hover {
+  transform: scale(1.03) rotate(1deg);
+  box-shadow: 0 0 30px #ff4df0;
+}
+
+/* Titles */
+.title {
+  font-size: 28px;
+  color: #ffb7ff;
+  text-shadow: 0 0 8px #ff4df0;
+}
+
+/* Links */
+a {
+  color: #00eaff;
+  font-weight: bold;
+  text-shadow: 0 0 6px #00eaff;
+}
+
+/* Floating bubbles */
+.bubble {
+  position: fixed;
+  bottom: -100px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 50%;
+  animation: floatUp 12s infinite ease-in;
+  filter: blur(1px);
+  z-index: 1;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-120vh) scale(1.6); opacity: 0; }
+}
+
 /* Floating hearts */
 .heart {
   position: fixed;
@@ -113,6 +114,7 @@
   clip-path: path("M24.6 4.6c-2.8-2.8-7.3-2.8-10.1 0L12 7.1l-2.5-2.5c-2.8-2.8-7.3-2.8-10.1 0s-2.8 7.3 0 10.1l2.5 2.5L12 24l10.1-10.1 2.5-2.5c2.8-2.8 2.8-7.3 0-10.1z");
   opacity: 0.8;
   animation: floatHearts 10s infinite ease-in;
+  z-index: 1;
 }
 
 @keyframes floatHearts {
@@ -120,20 +122,187 @@
   100% { transform: translateY(-120vh) scale(1.8); opacity: 0; }
 }
 
+/* Sparkles */
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: sparkleFloat 4s infinite ease-in-out;
+  z-index: 1;
+}
+
+@keyframes sparkleFloat {
+  0% { transform: scale(0.5); opacity: 0.6; }
+  50% { transform: scale(1.4); opacity: 1; }
+  100% { transform: scale(0.5); opacity: 0.6; }
+}
+
+/* Glitter cursor trail */
+.cursor-glitter {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: #ffb7ff;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.8;
+  animation: glitterFade 0.8s linear forwards;
+}
+
+@keyframes glitterFade {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(2); }
+}
+
+/* Animated background */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Page enter sparkle burst */
+@keyframes burst {
+  0% { opacity: 1; transform: scale(0.2); }
+  100% { opacity: 0; transform: scale(3); }
+}
+
+.burst {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  animation: burst 1s ease-out forwards;
+  z-index: 9999;
+}
+
+/* Floating mascot */
+.mascot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 50px;
+  animation: floatMascot 3s ease-in-out infinite;
+}
+
+@keyframes floatMascot {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
 </style>
+</head>
 
+<body>
 
-</style>/
+<!-- Neon Navigation Bar -->
+<nav class="neon-nav">
+  <a href="#top">Home</a>
+  <a href="#shows">Shows</a>
+  <a href="#movies">Movies</a>
+</nav>
+
+<!-- Page Enter Burst -->
+<div class="burst"></div>
+
+<!-- Floating Mascot -->
+<div class="mascot">💖</div>
+
+<!-- Floating bubbles -->
+<div class="bubble" style="left:10%; animation-delay:0s;"></div>
+<div class="bubble" style="left:30%; animation-delay:2s;"></div>
+<div class="bubble" style="left:50%; animation-delay:4s;"></div>
+<div class="bubble" style="left:70%; animation-delay:1s;"></div>
+<div class="bubble" style="left:90%; animation-delay:3s;"></div>
+
+<!-- Floating hearts -->
+<div class="heart" style="left:15%; animation-delay:0s;"></div>
+<div class="heart" style="left:45%; animation-delay:2s;"></div>
+<div class="heart" style="left:75%; animation-delay:1s;"></div>
+
+<!-- Sparkles -->
+<div class="sparkle" style="top:20%; left:15%; animation-delay:0s;"></div>
+<div class="sparkle" style="top:40%; left:45%; animation-delay:1s;"></div>
+<div class="sparkle" style="top:60%; left:75%; animation-delay:2s;"></div>
+<div class="sparkle" style="top:80%; left:25%; animation-delay:3s;"></div>
+
+<h1 id="top">Roxanne’s Cyber‑Bubble TV Guide</h1>
+
+<!-- SHOW LISTINGS -->
+<div class="guide-box">
+  <div class="title">🌟 Continuum</div>
+  <div class="desc">Time‑travel dystopia • Corporate future • Rebellion</div>
+  <a href="https://tubitv.com/series/300000883/continuum">Watch on Tubi</a>
+</div>
+
+<div class="guide-box">
+  <div class="title">🤖 Almost Human</div>
+  <div class="desc">Cyberpunk cops • Android partners • Neon tech</div>
+  <a href="https://tubitv.com/series/300006044/almost-human">Watch on Tubi</a>
+</div>
+
+<div class="guide-box">
+  <div class="title">🚀 The Expanse</div>
+  <div class="desc">Class struggle • Space politics • Gritty realism</div>
+  <a href="https://www.amazon.com/The-Expanse-Season-1/dp/B018BZ3SCM">Watch on Freevee</a>
+</div>
+
+<div class="guide-box">
+  <div class="title">🏙️ Colony</div>
+  <div class="desc">Occupation • Rebellion • Survival • Class systems</div>
+  <a href="https://tubitv.com/series/300006045/colony">Watch on Tubi</a>
+</div>
+
+<div class="guide-box">
+  <div class="title">🧠 Person of Interest</div>
+  <div class="desc">AI surveillance • Cyber‑noir • Predictive policing</div>
+  <a href="https://www.amazon.com/Person-Interest-Season-1/dp/B005GLYB4U">Watch on Freevee</a>
+</div>
+
+<div class="guide-box">
+  <div class="title">🧬 Travelers</div>
+  <div class="desc">Future collapse • Mission teams • Society rescue</div>
+  <a href="https://tubitv.com/series/300006046/travelers">Watch on Tubi</a>
+</div>
+
+<div class="guide-box">
+  <div class="title">🌑 Dark City</div>
+  <div class="desc">Proto‑Blade Runner • Surreal dystopia • Noir</div>
+  <a href="https://pluto.tv/on-demand/movies/dark-city-1998">Watch on Pluto TV</a>
+</div>
+
+<div class="guide-box">
+  <div class="title">⚔️ Equilibrium</div>
+  <div class="desc">Oppressive regime • Rebellion • Stylized action</div>
+  <a href="https://tubitv.com/movies/466567/equilibrium">Watch on Tubi</a>
+</div>
+
+<!-- Sound Effect -->
+<audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b4b1c3f3d.mp3?filename=pop-94319.mp3"></audio>
+
 <script>
 document.querySelectorAll('.guide-box').forEach(box => {
   box.addEventListener('mouseenter', () => {
     document.getElementById('hoverSound').play();
   });
 });
-</script>
-<!-- Floating hearts -->
-<div class="heart" style="left:15%; animation-delay:0s;"></div>
-<div class="heart" style="left:45%; animation-delay:2s;"></div>
-<div class="heart" style="left:75%; animation-delay:1s;"></div>
 
+/* Glitter cursor trail */
+document.addEventListener('mousemove', e => {
+  const glitter = document.createElement('div');
+  glitter.className = 'cursor-glitter';
+  glitter.style.left = e.pageX + 'px';
+  glitter.style.top = e.pageY + 'px';
+  document.body.appendChild(glitter);
+  setTimeout(() => glitter.remove(), 800);
+});
+</script>
+
+</body>
 </html>
