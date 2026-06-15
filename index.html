@@ -3,7 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <title>Roxanne’s Cyber‑Bubble TV Guide</title>
-<style>
+<style><style>
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: 'Trebuchet MS', sans-serif;
+  color: #ffffff;
+  background: linear-gradient(120deg, #ff4df0, #7b2fff, #00eaff);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  overflow-x: hidden;
+}
+
+/* Floating bubbles */
+.bubble {
+  position: fixed;
+  bottom: -100px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 50%;
+  animation: floatUp 12s infinite ease-in;
+  filter: blur(1px);
+}
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-120vh) scale(1.6); opacity: 0; }
+}
+
+/* Sparkles */
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: sparkleFloat 4s infinite ease-in-out;
+}
+@keyframes sparkleFloat {
+  0% { transform: scale(0.5); opacity: 0.6; }
+  50% { transform: scale(1.4); opacity: 1; }
+  100% { transform: scale(0.5); opacity: 0.6; }
+}
+
+/* Neon title pulse */
+h1 {
+  text-align: center;
+  font-size: 48px;
+  color: #ffb7ff;
+  text-shadow: 0 0 12px #ff4df0, 0 0 22px #ff4df0;
+  animation: pulse 2.5s infinite ease-in-out;
+}
+@keyframes pulse {
+  0%, 100% { text-shadow: 0 0 12px #ff4df0, 0 0 22px #ff4df0; }
+  50% { text-shadow: 0 0 22px #ff4df0, 0 0 42px #ff4df0; }
+}
+
+/* Guide boxes */
+.guide-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid #ff4df0;
+  border-radius: 25px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  box-shadow: 0 0 20px #ff4df0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Wiggle on hover */
+.guide-box:hover {
+  transform: scale(1.03) rotate(1deg);
+  box-shadow: 0 0 30px #ff4df0;
+}
+
+/* Titles */
+.title {
+  font-size: 28px;
+  color: #ffb7ff;
+  text-shadow: 0 0 8px #ff4df0;
+}
+
+/* Links */
+a {
+  color: #00eaff;
+  font-weight: bold;
+  text-shadow: 0 0 6px #00eaff;
+}
+
+/* Animated background */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+</style>
+
 body {
   background: radial-gradient(circle at top, #ff4df0, #3b0a57 60%, #000000);
   font-family: 'Trebuchet MS', sans-serif;
@@ -43,7 +139,19 @@ a {
 </style>
 </head>
 
-<body>
+<body><!-- Floating bubbles -->
+<div class="bubble" style="left:10%; animation-delay:0s;"></div>
+<div class="bubble" style="left:30%; animation-delay:2s;"></div>
+<div class="bubble" style="left:50%; animation-delay:4s;"></div>
+<div class="bubble" style="left:70%; animation-delay:1s;"></div>
+<div class="bubble" style="left:90%; animation-delay:3s;"></div>
+
+<!-- Sparkles -->
+<div class="sparkle" style="top:20%; left:15%; animation-delay:0s;"></div>
+<div class="sparkle" style="top:40%; left:45%; animation-delay:1s;"></div>
+<div class="sparkle" style="top:60%; left:75%; animation-delay:2s;"></div>
+<div class="sparkle" style="top:80%; left:25%; animation-delay:3s;"></div>
+
 
 <h1>Roxanne’s Cyber‑Bubble Neon TV Guide</h1>
 
